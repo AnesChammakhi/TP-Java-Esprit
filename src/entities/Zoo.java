@@ -1,41 +1,50 @@
+package entities;
+
 public class Zoo {
-    Animal[] animals;
-    String name,city;
-    final int nbrCages = 25;
-    int i=0;
+    private Animal[] animals;
+    private String name,city;
+    private final int nbrCages = 25;
+    private int i=0;
+
     public Zoo(String name,String city){
+
         this.animals = new Animal[nbrCages];
         this.name = name;
-        this.city = city;
-    }
+        this.city = city;}
+
     public void Ajout (Animal X){
         if (i < this.nbrCages) {
             this.animals[i] = X;
             i++;
-            System.out.println(X.name + " added to the zoo");
+            System.out.println(X.getName() + " added to the zoo");
         } else {
-            System.out.println("Zoo is full cannot add more animals");
+            System.out.println("entities.Zoo is full cannot add more animals");
         }
     }
     public String toString(){
         return name+" "+city+" "+nbrCages;
     }
 
-    public boolean addAnimal(Animal animal){
+    public boolean addAnimal(Animal animal) {
         if (animal == null) return false;
         if (searchAnimal(animal) != -1) {
-            System.out.println(animal.name+" already exists in the zoo");
+            System.out.println(animal.getName() + " already exists in the zoo");
+            return false;
+        }
+        if(animal.getAge()<0){
+            System.out.println("Age is negative");
+            return false;}
+        if (isZooFull()) {
+            System.out.println("entities.Zoo is full cannot add more animals");
             return false;
         }
         if (i < this.nbrCages) {
             this.animals[i] = animal;
             i++;
-            System.out.println(animal.name + " added to the zoo");
+            System.out.println(animal.getName() + " added to the zoo");
             return true;
-        } else {
-            System.out.println("Zoo is full cannot add more animals");
-            return false;
         }
+        return false;
     }
 
     public void afficherAnimals() {
@@ -77,6 +86,39 @@ public class Zoo {
         else return z2;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public Animal[] getAnimals() {
+        return animals;
+    }
 
+    public String getCity() {
+        return city;
+    }
+
+    public int getNbrCages() {
+        return nbrCages;
+    }
+
+    public int getI() {
+        return i;
+    }
+
+    public void setAnimals(Animal[] animals) {
+        this.animals = animals;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setI(int i) {
+        this.i = i;
+    }
 }
