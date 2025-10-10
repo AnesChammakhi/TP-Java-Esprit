@@ -1,6 +1,6 @@
 package entities;
 
-public class Animal {
+public sealed class Animal permits Aquatic,Terrestrial{
     private String family,name;
     private int age;
     private boolean isMammal;
@@ -41,4 +41,5 @@ public class Animal {
     public void setName(String name) {
         this.name = name;
     }
+
 }
