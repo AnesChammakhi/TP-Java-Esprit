@@ -51,19 +51,26 @@ public class Main {
             Zoo bigzoo = Zoo.comparerZoo(Z1, Z2);
             System.out.println("Le zoo avec le plus d'animaux est : " + bigzoo.getName());
 
-            Aquatic Aqua = new Aquatic("turtle","Leonardo",10,false,"ocean");
             Terrestrial  terr = new Terrestrial("mouse ","Splinter",7,true,4);
             Dolphin dolphin = new Dolphin("dolphin","Porsche",2,true,"ocean",10);
             Penguin penguin = new Penguin("penguin","kawasaki",3,true,"ocean",5);
+            Penguin penguin2 = new Penguin("penguin","krico",3,true,"ocean",7);
 
-            System.out.println(Aqua);
+            System.out.println(penguin2);
             System.out.println(terr);
             System.out.println(dolphin);
             System.out.println(penguin);
 
-            Aqua.swim();
-            penguin.swim();
-            dolphin.swim();
+            Z1.addAquaticAnimal(penguin2);
+            Z1.addAquaticAnimal(dolphin);
+            Z1.addAquaticAnimal(penguin);
+
+
+            Z1.swimAll();
+            Z1.displayNumberOfAquaticsByType();
+            float depth=Z1.maxPenguinSwimmingDepth();
+            System.out.println(depth);
+
 
 
 

@@ -13,8 +13,9 @@ public final class Dolphin extends Aquatic {
         return (super.toString() +" swimmingSpeed: "+ this.swimmingSpeed);
 
     }
-    @Override
+
     public void swim(){
         System.out.println("This dolphin is swimming.");
     }
+
 }
