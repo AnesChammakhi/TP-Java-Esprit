@@ -5,7 +5,7 @@ import entities.*;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ZooFullException {
 
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter entities.Zoo name: ");
@@ -34,10 +34,19 @@ public class Main {
             Animal A1= new Animal("lion","labowbow",5,true);
             Animal A2= new Animal("Monkey","Mibombo",3,false);
             Animal A3= new Animal("Monkey","Bobo",5,false);
+            Animal A4= new Animal("cat","dodo",2,false);
 
-            Z1.addAnimal(A1);
-            Z1.addAnimal(A2);
-            Z2.addAnimal(A3);
+            Animal[] animalsToAdd = {A1, A2, A3, A4};
+
+            for (Animal a : animalsToAdd) {
+                try {
+                    Z1.addAnimal(a);
+                } catch (ZooFullException | InvalidAgeException e) {
+                    System.out.println(e.getMessage());
+                } finally {
+                    System.out.println("Total animals in zoo: " + Z1.getI());
+                }
+            }
 
             System.out.println("****");
             Z1.afficherAnimals();

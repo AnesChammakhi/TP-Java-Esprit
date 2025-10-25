@@ -3,7 +3,7 @@ package entities;
 public class Zoo {
     private Animal[] animals;
     private String name,city;
-    private final int nbrCages = 25;
+    private final int nbrCages = 3;
     private int i=0;
     public Aquatic[] aquaticAnimals = new Aquatic[10];
     public int j=0;
@@ -27,8 +27,24 @@ public class Zoo {
     public String toString(){
         return name+" "+city+" "+nbrCages;
     }
+    public void addAnimal(Animal animal) throws ZooFullException {
+        if (searchAnimal(animal) != -1) {
+            System.out.println(animal.getName() + " already exists in the zoo");
+        }
+        if (isZooFull()) {
+            throw new ZooFullException();
+        }
 
-    public boolean addAnimal(Animal animal) {
+        if (animal.getAge() < 0) {
+            throw new InvalidAgeException();
+        }
+        if (i < this.nbrCages) {
+            this.animals[i] = animal;
+            i++;
+            System.out.println(animal.getName() + " added to the zoo");
+        }
+    }
+   /* public boolean addAnimal(Animal animal) {
         if (animal == null) return false;
         if (searchAnimal(animal) != -1) {
             System.out.println(animal.getName() + " already exists in the zoo");
@@ -49,7 +65,7 @@ public class Zoo {
         }
         return false;
     }
-
+*/
     public void afficherAnimals() {
         for (int k = 0; k < i; k++) {
             System.out.println(animals[k]);
