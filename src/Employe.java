@@ -1,4 +1,6 @@
-public class Employe {
+import java.util.Comparator;
+
+public class Employe implements Comparable<Employe> {
 
     private int id;
     private String nom;
@@ -17,6 +19,8 @@ public class Employe {
         this.nomDepartement = nomDepartement;
         this.grade = grade;
     }
+
+
 
     @Override
     public boolean equals(Object obj){
@@ -69,5 +73,14 @@ public class Employe {
     public void setPrenom(String prenom) {
      this.prenom = prenom;
     }
+
+    @Override
+    public int compareTo(Employe e) {
+
+        //return this.nom.compareTo(e.nom); hatheya ken je String
+        return Integer.compare(this.id, e.id);
+    }
+
+
 }
 

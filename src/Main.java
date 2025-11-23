@@ -8,6 +8,7 @@ public class Main {
         societe.ajouterEmploye(new Employe(2, "Sara","ben sgh", "Comptabilité", 2));
         societe.ajouterEmploye(new Employe(3, "Anes","cham", "Informatique", 4));
 
+
         List<Employe> informaticiens = societe.rechercherParDepartement("Informatique");
 
         System.out.println("Employes du departement Informatique :");
